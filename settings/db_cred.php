@@ -6,12 +6,12 @@
 define('SERVER', 'localhost');
 
 // Database username
-define('USERNAME', 'root');
+define('USERNAME', 'hassan.yakubu');
 
 // Database password
-define('PASSWD', '');
+define('PASSWD', 'jonnytest');
 
 // Database name
-define('DATABASE', 'shoppn');
+define('DATABASE', 'ecommerce_2025A_hassan_yakubu');
 
 ?>
