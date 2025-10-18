@@ -130,16 +130,17 @@ try {
     $result = $customer_controller->register_customer_ctr($customer_data);
     
     // Clean any output buffer and send JSON response
-    ob_clean();
+    ob_end_clean();
     echo json_encode($result);
+    exit;
     
 } catch (Exception $e) {
     // Handle unexpected errors
-    ob_clean();
+    ob_end_clean();
     echo json_encode([
         'status' => 'error',
         'message' => 'An unexpected error occurred. Please try again.'
     ]);
     error_log("Registration error: " . $e->getMessage());
+    exit;
 }
-?>

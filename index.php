@@ -1,31 +1,7 @@
-<?php
-require_once __DIR__ . '/settings/core.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Platform - Home</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="header">
-        <div class="container">
-            <h1>E-Commerce Platform</h1>
-        </div>
-    </div>
-
-    <div class="nav">
-        <div class="container">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <?php if (!isLoggedIn()): ?>
-                    <li><a href="view/login.php" class="btn btn-secondary">Login</a></li>
-                    <li><a href="view/register.php" class="btn btn-primary">Register</a></li>
-                <?php else: ?>
                     <?php if (isAdmin()): ?>
                         <li><a href="admin/category.php" class="btn btn-secondary">Category</a></li>
+                        <li><a href="admin/brand.php" class="btn btn-secondary">Brand</a></li>
+                        <li><a href="admin/product.php" class="btn btn-secondary">Add Product</a></li>
                     <?php endif; ?>
                     <li><a href="actions/logout_action.php" class="btn btn-danger">Logout</a></li>
                 <?php endif; ?>
@@ -45,12 +21,8 @@ require_once __DIR__ . '/settings/core.php';
                 <?php else: ?>
                     <?php if (isAdmin()): ?>
                         <a href="admin/category.php" class="btn btn-secondary" style="margin-right: 10px;">Manage Categories</a>
+                        <a href="admin/brand.php" class="btn btn-secondary" style="margin-right: 10px;">Manage Brands</a>
+                        <a href="admin/product.php" class="btn btn-secondary" style="margin-right: 10px;">Add Product</a>
                     <?php endif; ?>
                     <a href="actions/logout_action.php" class="btn btn-danger">Logout</a>
                 <?php endif; ?>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
