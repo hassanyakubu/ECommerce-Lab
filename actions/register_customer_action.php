@@ -8,7 +8,7 @@ ini_set('log_errors', 1);
 ob_start();
 
 header('Content-Type: application/json');
-require("../controllers/customer_controller.php");
+require_once __DIR__ . '/../controllers/customer_controller.php';
 
 // Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -130,13 +130,13 @@ try {
     $result = $customer_controller->register_customer_ctr($customer_data);
     
     // Clean any output buffer and send JSON response
-    ob_end_clean();
+    if (ob_get_level() > 0) { ob_end_clean(); }
     echo json_encode($result);
     exit;
     
 } catch (Exception $e) {
     // Handle unexpected errors
-    ob_end_clean();
+    if (ob_get_level() > 0) { ob_end_clean(); }
     echo json_encode([
         'status' => 'error',
         'message' => 'An unexpected error occurred. Please try again.'
